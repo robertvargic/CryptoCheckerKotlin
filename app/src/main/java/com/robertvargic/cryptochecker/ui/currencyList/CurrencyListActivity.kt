@@ -32,7 +32,7 @@ class CurrencyListActivity : AppCompatActivity(), CurrencyListContract.View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun initListView(currencyList: List<Currency>) {
+    override fun initListView(currencyList: MutableList<Currency>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
