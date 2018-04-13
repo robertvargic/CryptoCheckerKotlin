@@ -2,6 +2,7 @@ package com.robertvargic.cryptochekerjava
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.robertvargic.cryptochecker.R
 
 class CurrencyListActivity : AppCompatActivity() {
 
