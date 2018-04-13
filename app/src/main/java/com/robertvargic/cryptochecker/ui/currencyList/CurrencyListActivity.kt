@@ -9,12 +9,12 @@ import com.robertvargic.cryptochecker.ui.currencyList.CurrencyListPresenter
 
 class CurrencyListActivity : AppCompatActivity(), CurrencyListContract.View {
 
+    //presenter
     private lateinit var currencyListPresenter : CurrencyListContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_currency_list)
-
         setPresenter(CurrencyListPresenter(this))
 
         currencyListPresenter.getCurrencyList(this)
