@@ -1,5 +1,5 @@
 package com.robertvargic.cryptochecker.ui.base
 
-interface BaseView<T> {
+interface BaseView<in T> {
     fun setPresenter(presenter: T)
 }

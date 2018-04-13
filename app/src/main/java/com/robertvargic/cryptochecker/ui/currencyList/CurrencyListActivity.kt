@@ -3,6 +3,7 @@ package com.robertvargic.cryptochekerjava
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.robertvargic.cryptochecker.R
+import com.robertvargic.cryptochecker.models.Currency
 import com.robertvargic.cryptochecker.ui.currencyList.CurrencyListContract
 import com.robertvargic.cryptochecker.ui.currencyList.CurrencyListPresenter
 
@@ -31,7 +32,7 @@ class CurrencyListActivity : AppCompatActivity(), CurrencyListContract.View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun initListView() {
+    override fun initListView(currencyList: List<Currency>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
