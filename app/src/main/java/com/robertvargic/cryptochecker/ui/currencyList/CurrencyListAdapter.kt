@@ -1,27 +1,32 @@
 package com.robertvargic.cryptochecker.ui.currencyList
 
+import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
+import com.robertvargic.cryptochecker.R
 import com.robertvargic.cryptochecker.models.Currency
+import kotlinx.android.synthetic.main.list_item_currency.view.*
 
-class CurrencyListAdapter : BaseAdapter() {
+class CurrencyListAdapter(private val items: ArrayList<Currency>, private val context: Context) : RecyclerView.Adapter<CurrencyListAdapter.ViewHolder>() {
 
-    private lateinit var currencyList: List<Currency>
-
-    override fun getItem(p0: Int): Any {
-        return currencyList[p0]
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item_currency, parent, false))
     }
 
-    override fun getItemId(p0: Int): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getItemCount(): Int {
+        return items.size
     }
 
-    override fun getCount(): Int {
-        return currencyList.size
+    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+        holder?.bindData(items[position])
     }
 
-    override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bindData(currency: Currency) {
+            itemView.list_item_currency_title.text = currency.name
+            itemView.list_item_currency_price.text = currency.priceUsd
+        }
     }
 }

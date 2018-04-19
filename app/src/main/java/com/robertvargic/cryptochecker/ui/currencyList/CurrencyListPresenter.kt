@@ -11,10 +11,8 @@ class CurrencyListPresenter : CurrencyListContract.Presenter {
     }
 
     override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getCurrencyList(context: Context) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

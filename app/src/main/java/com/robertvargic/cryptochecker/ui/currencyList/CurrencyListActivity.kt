@@ -25,14 +25,11 @@ class CurrencyListActivity : AppCompatActivity(), CurrencyListContract.View {
     }
 
     override fun startLoadingAnimation() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun stopLoadingAnimation() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun initListView(currencyList: MutableList<Currency>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
