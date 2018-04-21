@@ -4,11 +4,17 @@ import com.robertvargic.cryptochecker.models.Currency
 import com.robertvargic.cryptochecker.networking.ApiService
 import retrofit2.*
 
-class GetCurrencyListTask(retrofit: Retrofit, serviceClass: Class<ApiService>) : BaseTask<ApiService, MutableList<Currency>>(retrofit, serviceClass), ServerTask<MutableList<Currency>, Void> {
-    override fun execute(listener: TaskListener<MutableList<Currency>>, params: Void) {
+class GetCurrencyListTask(retrofit: Retrofit) : ServerTask<MutableList<Currency>> {
+
+    var mService: ApiService
+
+    init {
+        mService = retrofit.create(ApiService::class.java)
+    }
+
+    override fun execute(listener: TaskListener<MutableList<Currency>>) {
         listener.onPreExecute()
         val call = mService.getCurrencyList()
-        mActiveCall = call
 
         call.enqueue(object : Callback<MutableList<Currency>> {
             override fun onFailure(call: Call<MutableList<Currency>>?, t: Throwable?) {
