@@ -10,7 +10,7 @@ object CurrencyListContract {
     interface View : BaseView<Presenter> {
         fun startLoadingAnimation()
         fun stopLoadingAnimation()
-        fun initListView(currencyList: MutableList<Currency>)
+        fun initListView(currencyList: MutableList<Currency>?)
     }
 
     interface Presenter : BasePresenter {

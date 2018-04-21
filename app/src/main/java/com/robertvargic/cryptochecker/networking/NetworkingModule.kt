@@ -1,8 +1,6 @@
 package com.robertvargic.cryptochecker.networking
 
 import com.google.gson.*
-import dagger.Provides
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
@@ -39,16 +37,31 @@ class NetworkingModule {
 //                addInterceptor(interceptor)
 //            }.build()
 
-    @Provides
-    fun retrofit(backendUrl: String, client: OkHttpClient): Retrofit =
-            Retrofit.Builder()
-                    .baseUrl(backendUrl)
-                    .client(client)
-                    .addConverterFactory(GsonConverterFactory.create(getGson()))
+    fun createRetrofit(): Retrofit {
+        return Retrofit.Builder()
+                .baseUrl("https://api.coinmarketcap.com/")
+                .addConverterFactory(GsonConverterFactory.create(getGson()))
+                .build()
+    }
+
+    companion object Factory {
+        fun create(): ApiService {
+            val retrofit = Retrofit.Builder()
+                    .baseUrl("https://api.coinmarketcap.com/")
+                    .addConverterFactory(GsonConverterFactory.create(NetworkingModule().getGson()))
                     .build()
+            return retrofit.create(ApiService::class.java)
+        }
+    }
+
+//    fun createRetrofit(): Retrofit =
+//            Retrofit.Builder()
+//                    .baseUrl("https://api.coinmarketcap.com/")
+//                    .addConverterFactory(GsonConverterFactory.create(getGson()))
+//                    .build()
 
 
-    private fun getGson(): Gson {
+    public fun getGson(): Gson {
         return getCommonBuilder()
                 .create()
     }

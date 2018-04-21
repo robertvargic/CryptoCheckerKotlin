@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.robertvargic.cryptochecker.R
 import com.robertvargic.cryptochecker.models.Currency
+import com.robertvargic.cryptochecker.ui.currencyList.CurrencyListAdapter
 import com.robertvargic.cryptochecker.ui.currencyList.CurrencyListContract
 import com.robertvargic.cryptochecker.ui.currencyList.CurrencyListPresenter
+import kotlinx.android.synthetic.main.activity_currency_list.*
 
-class CurrencyListActivity : AppCompatActivity(), CurrencyListContract.View {
+abstract class CurrencyListActivity : AppCompatActivity(), CurrencyListContract.View {
 
     //presenter
     private lateinit var currencyListPresenter : CurrencyListContract.Presenter
@@ -31,5 +33,8 @@ class CurrencyListActivity : AppCompatActivity(), CurrencyListContract.View {
     }
 
     override fun initListView(currencyList: MutableList<Currency>) {
+        val currencyListAdapter = CurrencyListAdapter(currencyList, this)
+        activity_currency_list_list_view.adapter = currencyListAdapter
+        activity_currency_list_list_view.adapter.notifyDataSetChanged()
     }
 }

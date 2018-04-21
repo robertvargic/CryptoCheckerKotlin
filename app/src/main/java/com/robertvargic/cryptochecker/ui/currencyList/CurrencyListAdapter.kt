@@ -9,7 +9,7 @@ import com.robertvargic.cryptochecker.R
 import com.robertvargic.cryptochecker.models.Currency
 import kotlinx.android.synthetic.main.list_item_currency.view.*
 
-class CurrencyListAdapter(private val items: ArrayList<Currency>, private val context: Context) : RecyclerView.Adapter<CurrencyListAdapter.ViewHolder>() {
+class CurrencyListAdapter(private val items: MutableList<Currency>, private val context: Context) : RecyclerView.Adapter<CurrencyListAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item_currency, parent, false))

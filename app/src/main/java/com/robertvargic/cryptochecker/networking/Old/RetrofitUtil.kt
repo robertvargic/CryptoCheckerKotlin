@@ -1,4 +1,4 @@
-package com.robertvargic.cryptochecker.networking
+package com.robertvargic.cryptochecker.networking.Old
 
 import android.content.Context
 import com.google.gson.*
