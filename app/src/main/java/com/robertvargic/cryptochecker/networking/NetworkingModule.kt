@@ -54,14 +54,8 @@ class NetworkingModule {
         }
     }
 
-//    fun createRetrofit(): Retrofit =
-//            Retrofit.Builder()
-//                    .baseUrl("https://api.coinmarketcap.com/")
-//                    .addConverterFactory(GsonConverterFactory.create(getGson()))
-//                    .build()
 
-
-    public fun getGson(): Gson {
+    fun getGson(): Gson {
         return getCommonBuilder()
                 .create()
     }
