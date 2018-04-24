@@ -31,6 +31,5 @@ class RetrofitUtil {
         return GsonBuilder()
                 .registerTypeAdapter(Date::class.java, DATE_JSON_SERIALIZER)
                 .registerTypeAdapter(Date::class.java, DATE_JSON_DESERIALIZER)
-                .excludeFieldsWithoutExposeAnnotation()
     }
 }

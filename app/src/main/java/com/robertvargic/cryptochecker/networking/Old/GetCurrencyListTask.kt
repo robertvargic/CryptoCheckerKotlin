@@ -6,11 +6,7 @@ import retrofit2.*
 
 class GetCurrencyListTask(retrofit: Retrofit) : ServerTask<MutableList<Currency>> {
 
-    var mService: ApiService
-
-    init {
-        mService = retrofit.create(ApiService::class.java)
-    }
+    private var mService: ApiService = retrofit.create(ApiService::class.java)
 
     override fun execute(listener: TaskListener<MutableList<Currency>>) {
         listener.onPreExecute()
