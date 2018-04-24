@@ -2,9 +2,9 @@ package com.robertvargic.cryptochecker.ui.currencyList
 
 import android.content.Context
 import com.robertvargic.cryptochecker.models.Currency
-import com.robertvargic.cryptochecker.networking.Old.GetCurrencyListTask
-import com.robertvargic.cryptochecker.networking.Old.RetrofitUtil
-import com.robertvargic.cryptochecker.networking.Old.TaskListener
+import com.robertvargic.cryptochecker.networking.GetCurrencyListTask
+import com.robertvargic.cryptochecker.networking.RetrofitUtil
+import com.robertvargic.cryptochecker.networking.base.TaskListener
 
 class CurrencyListPresenter : CurrencyListContract.Presenter {
 

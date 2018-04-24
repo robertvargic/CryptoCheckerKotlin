@@ -1,12 +1,12 @@
-package com.robertvargic.cryptochecker.networking.Old
+package com.robertvargic.cryptochecker.networking
 
 import com.robertvargic.cryptochecker.models.Currency
-import com.robertvargic.cryptochecker.networking.ApiService
+import com.robertvargic.cryptochecker.networking.base.BaseTask
+import com.robertvargic.cryptochecker.networking.base.ServerTask
+import com.robertvargic.cryptochecker.networking.base.TaskListener
 import retrofit2.*
 
-class GetCurrencyListTask(retrofit: Retrofit) : ServerTask<MutableList<Currency>> {
-
-    private var mService: ApiService = retrofit.create(ApiService::class.java)
+class GetCurrencyListTask(retrofit: Retrofit) : BaseTask(retrofit), ServerTask<MutableList<Currency>> {
 
     override fun execute(listener: TaskListener<MutableList<Currency>>) {
         listener.onPreExecute()

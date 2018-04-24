@@ -1,4 +1,4 @@
-package com.robertvargic.cryptochecker.networking.Old
+package com.robertvargic.cryptochecker.networking.base
 
  interface TaskListener<T> {
     fun onPreExecute()
