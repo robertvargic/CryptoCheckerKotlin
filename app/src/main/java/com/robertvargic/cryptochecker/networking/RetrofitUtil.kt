@@ -2,6 +2,8 @@ package com.robertvargic.cryptochecker.networking
 
 import android.content.Context
 import com.google.gson.*
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
@@ -19,6 +21,7 @@ class RetrofitUtil {
         return Retrofit.Builder()
                 .baseUrl("https://api.coinmarketcap.com/")
                 .addConverterFactory(GsonConverterFactory.create(getGson()))
+                .client(okHttpClient())
                 .build()
     }
 
@@ -32,4 +35,12 @@ class RetrofitUtil {
                 .registerTypeAdapter(Date::class.java, DATE_JSON_SERIALIZER)
                 .registerTypeAdapter(Date::class.java, DATE_JSON_DESERIALIZER)
     }
+
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor =
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+    fun okHttpClient(): OkHttpClient =
+            OkHttpClient.Builder().apply {
+                addInterceptor(provideLoggingInterceptor())
+            }.build()
 }
