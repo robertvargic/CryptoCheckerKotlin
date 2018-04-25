@@ -36,10 +36,10 @@ class RetrofitUtil {
                 .registerTypeAdapter(Date::class.java, DATE_JSON_DESERIALIZER)
     }
 
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor =
+    private fun provideLoggingInterceptor(): HttpLoggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-    fun okHttpClient(): OkHttpClient =
+    private fun okHttpClient(): OkHttpClient =
             OkHttpClient.Builder().apply {
                 addInterceptor(provideLoggingInterceptor())
             }.build()
