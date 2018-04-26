@@ -1,14 +1,14 @@
 package com.robertvargic.cryptochecker.ui.currencyList
 
-import android.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.robertvargic.cryptochecker.R
 import com.robertvargic.cryptochecker.models.Currency
-import kotlinx.android.synthetic.main.activity_currency_list.*
+import kotlinx.android.synthetic.main.fragment_currency_list.*
 
 class CurrencyListFragment : Fragment(), CurrencyListContract.View {
 
@@ -26,7 +26,7 @@ class CurrencyListFragment : Fragment(), CurrencyListContract.View {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity_currency_list_list_view.layoutManager = LinearLayoutManager(context)
+        fragment_currency_list_list_view.layoutManager = LinearLayoutManager(context)
         currencyListPresenter.getCurrencyList(context)
     }
 
@@ -42,7 +42,7 @@ class CurrencyListFragment : Fragment(), CurrencyListContract.View {
 
     override fun initListView(currencyList: MutableList<Currency>?) {
         val currencyListAdapter = CurrencyListAdapter(currencyList!!, context)
-        activity_currency_list_list_view.adapter = currencyListAdapter
-        activity_currency_list_list_view.adapter.notifyDataSetChanged()
+        fragment_currency_list_list_view.adapter = currencyListAdapter
+        fragment_currency_list_list_view.adapter.notifyDataSetChanged()
     }
 }
