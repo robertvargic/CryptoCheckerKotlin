@@ -2,7 +2,7 @@ package com.robertvargic.cryptochecker.ui.currencyList
 
 import android.content.Context
 import com.robertvargic.cryptochecker.models.Currency
-import com.robertvargic.cryptochecker.networking.GetCurrencyListTask
+import com.robertvargic.cryptochecker.networking.tasks.GetCurrencyListTask
 import com.robertvargic.cryptochecker.networking.RetrofitUtil
 import com.robertvargic.cryptochecker.networking.base.TaskListener
 
