@@ -11,6 +11,9 @@ import kotlinx.android.synthetic.main.activity_base_view_pager.*
 
 class BaseViewPagerActivity : AppCompatActivity() {
 
+    val currencyListFragment = CurrencyListFragment()
+    val portfolioFragment = PortfolioFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_view_pager)
@@ -22,21 +25,22 @@ class BaseViewPagerActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_currency_list -> {
-
+                activity_base_view_pager_view_pager.setCurrentItem(0, true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_portfolio -> {
-
+                activity_base_view_pager_view_pager.setCurrentItem(1, true)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
 
-    fun setupViewPager(viewPager: ViewPager) {
+    private fun setupViewPager(viewPager: ViewPager) {
         var viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-        viewPagerAdapter.addFragment(CurrencyListFragment(), "Title")
-        viewPagerAdapter.addFragment(PortfolioFragment(), "Title2")
+        viewPagerAdapter.addFragment(currencyListFragment, "title1")
+        viewPagerAdapter.addFragment(portfolioFragment, "title2")
+
         viewPager.adapter = viewPagerAdapter
     }
 }
