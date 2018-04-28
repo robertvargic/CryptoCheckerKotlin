@@ -1,16 +1,16 @@
 package com.robertvargic.cryptochecker.ui.currencyList
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.robertvargic.cryptochecker.R
 import com.robertvargic.cryptochecker.models.Currency
+import com.robertvargic.cryptochecker.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_currency_list.*
 
-class CurrencyListFragment : Fragment(), CurrencyListContract.View {
+class CurrencyListFragment : BaseFragment(), CurrencyListContract.View {
 
     //presenter
     private lateinit var currencyListPresenter: CurrencyListContract.Presenter

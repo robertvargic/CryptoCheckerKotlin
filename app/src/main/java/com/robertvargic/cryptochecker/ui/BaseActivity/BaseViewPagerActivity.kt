@@ -3,13 +3,13 @@ package com.robertvargic.cryptochecker.ui.BaseActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import com.robertvargic.cryptochecker.R
+import com.robertvargic.cryptochecker.ui.base.BaseActivity
 import com.robertvargic.cryptochecker.ui.currencyList.CurrencyListFragment
 import com.robertvargic.cryptochecker.ui.portfolio.PortfolioFragment
 import kotlinx.android.synthetic.main.activity_base_view_pager.*
 
-class BaseViewPagerActivity : AppCompatActivity() {
+class BaseViewPagerActivity : BaseActivity() {
 
     val currencyListFragment = CurrencyListFragment()
     val portfolioFragment = PortfolioFragment()
