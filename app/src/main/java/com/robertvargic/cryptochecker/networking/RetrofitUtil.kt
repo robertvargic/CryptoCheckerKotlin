@@ -10,6 +10,8 @@ import java.util.*
 
 class RetrofitUtil {
 
+    val BASE_URL  = "https://api.coinmarketcap.com/"
+
     private val DATE_JSON_SERIALIZER = JsonSerializer<Date> { src, typeOfSrc, context -> if (src == null) null else JsonPrimitive(src.time) }
     private val DATE_JSON_DESERIALIZER = JsonDeserializer<Date> { json, typeOfT, context -> if (json == null) null else Date(json.asLong) }
 
@@ -19,7 +21,7 @@ class RetrofitUtil {
 
     private fun createRetrofit(context: Context): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://api.coinmarketcap.com/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(getGson()))
                 .client(okHttpClient())
                 .build()
