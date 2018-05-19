@@ -15,7 +15,7 @@ class PortfolioPresenter : PortfolioContract.Presenter {
     }
 
     override fun getCurrencyValueFromEndpoint(context: Context, currencyId: String) {
-        val getCurrency = GetCurrencyTask(RetrofitUtil().createRetrofitForUrl(context), currencyId)
+        val getCurrency = GetCurrencyTask(RetrofitUtil().createRetrofitForUrl(), currencyId)
 
         getCurrency.execute(object : TaskListener<Currency> {
             override fun onPreExecute() {

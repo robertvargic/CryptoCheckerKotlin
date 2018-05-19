@@ -1,6 +1,5 @@
 package com.robertvargic.cryptochecker.networking
 
-import android.content.Context
 import com.google.gson.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,11 +14,11 @@ class RetrofitUtil {
     private val DATE_JSON_SERIALIZER = JsonSerializer<Date> { src, typeOfSrc, context -> if (src == null) null else JsonPrimitive(src.time) }
     private val DATE_JSON_DESERIALIZER = JsonDeserializer<Date> { json, typeOfT, context -> if (json == null) null else Date(json.asLong) }
 
-    fun createRetrofitForUrl(context: Context): Retrofit {
-        return createRetrofit(context)
+    fun createRetrofitForUrl(): Retrofit {
+        return createRetrofit()
     }
 
-    private fun createRetrofit(context: Context): Retrofit {
+    private fun createRetrofit(): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(getGson()))

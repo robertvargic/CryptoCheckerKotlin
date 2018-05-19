@@ -27,7 +27,7 @@ class CurrencyListFragment : BaseFragment(), CurrencyListContract.View {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fragment_currency_list_list_view.layoutManager = LinearLayoutManager(context)
-        currencyListPresenter.getCurrencyList(context)
+        currencyListPresenter.getCurrencyList()
     }
 
     override fun setPresenter(presenter: CurrencyListContract.Presenter) {

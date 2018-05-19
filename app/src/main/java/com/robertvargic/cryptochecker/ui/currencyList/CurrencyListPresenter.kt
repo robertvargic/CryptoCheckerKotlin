@@ -2,9 +2,9 @@ package com.robertvargic.cryptochecker.ui.currencyList
 
 import android.content.Context
 import com.robertvargic.cryptochecker.models.Currency
-import com.robertvargic.cryptochecker.networking.tasks.GetCurrencyListTask
 import com.robertvargic.cryptochecker.networking.RetrofitUtil
 import com.robertvargic.cryptochecker.networking.base.TaskListener
+import com.robertvargic.cryptochecker.networking.tasks.GetCurrencyListTask
 
 class CurrencyListPresenter : CurrencyListContract.Presenter {
 
@@ -17,9 +17,9 @@ class CurrencyListPresenter : CurrencyListContract.Presenter {
     override fun start() {
     }
 
-    override fun getCurrencyList(context: Context) {
+    override fun getCurrencyList() {
 
-        val getCurrencyListTask = GetCurrencyListTask(RetrofitUtil().createRetrofitForUrl(context))
+        val getCurrencyListTask = GetCurrencyListTask(RetrofitUtil().createRetrofitForUrl())
 
         getCurrencyListTask.execute(object : TaskListener<MutableList<Currency>> {
             override fun onSuccess(result: MutableList<Currency>) {
